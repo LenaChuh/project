@@ -74,13 +74,14 @@ def s(*args):
 #Задача6
 
 def int_func(l):
-    return l.capitalize()
+    spisok='zxcvbnmasdfghjklqwertyuiop'
+    return l.title() if not set(l).difference(spisok) else False
 
-def inc_func2(m):
-    st=str()
-    for word in m.split():
-        st=st+' '+int_func(word)
-    print(f'{st}')
+st = input("Enter string of words seperated by space :").split()
+for word in st:
+    result=int_func(word)
+    if result:
+        print(int_func(word),' ')
 
 
 
