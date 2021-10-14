@@ -27,14 +27,14 @@ hour = (time_period // (60 * 60)) % 24
 minutes = (time_period // 60) % 60
 sec = time_period % 60
 
-f"{hour:02}:{minutes:02}:{sec:02}"
+print (f"{hour:02}:{minutes:02}:{sec:02}")
 
 # Задача3
 
 print("select a number from 1 to 9")
 n = int(input())
 new_number = n + (n * 10 + n) + (n * 100 + n * 10 + n)
-f"new number is {new_number}"
+print (f"new number is {new_number}")
 
 # Задача4
 
