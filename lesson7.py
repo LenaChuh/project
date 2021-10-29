@@ -71,7 +71,9 @@ class Kostum(Odezda):
     def ras(self):
         return round((self.param * 2 + 0.5) * 0.01, 2)
     
-
+coat=Palto(42)
+kostum=Kostum(170)
+print (coat+kostum+kostum)
 
 
 # Задача3
