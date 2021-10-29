@@ -39,44 +39,39 @@ print(ss + kk)
 # Задача2
 
 
-class Odezda:
+class Odezda(ABC):
+    result = 0
 
-    def __init__(self, name, V, H):
-        self._name = name
-        self.V = V
-        self.H = H
+    def __init__(self, param):
+        self.param = param
 
-    # @property
-    # def name(self):
-    # return self._name
+    @property
+    @abstractmethod
+    def ras(self):
+        pass
 
-    # @name.setter
-    # def name(self, value):
-    # self._name=value
+    def __add__(self, other):
+        Odezda.result += self.ras + other.ras
+        return Kostum(0)
 
+    def __str__(self):
+        r = Odezda.result
+        Odezda.result = 0
+        return f'{r}'
+
+
+class Palto(Odezda):
     @property
     def ras(self):
-        if self._name == 'palto':
-            try:
-                r = (float(self.V) / 6.5 + 0.5)
-            except:
-                raise ValueError("Not valid number")
-            return r
-        elif self._name == 'kostum':
-            try:
-                r = (float(self.H) * 2 + 0.3)
-            except:
-                raise ValueError("Not valid number")
-            return r
+        return round((float(self.param) / 6.5 + 0.5), 2)
 
+
+class Kostum(Odezda):
     @property
-    def name(self):
-        return self._name
+    def ras(self):
+        return round((self.param * 2 + 0.5) * 0.01, 2)
+    
 
-
-r = Odezda('kostum', 42, 1.7)
-r.ras
-r.name
 
 
 # Задача3
